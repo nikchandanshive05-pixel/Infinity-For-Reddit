@@ -178,10 +178,10 @@ public class LoginChromeCustomTabActivity extends BaseActivity {
 
         try {
             Uri.Builder uriBuilder = Uri.parse(APIUtils.OAUTH_URL).buildUpon();
-            uriBuilder.appendQueryParameter(APIUtils.CLIENT_ID_KEY, APIUtils.CLIENT_ID);
+            uriBuilder.appendQueryParameter(APIUtils.CLIENT_ID_KEY, APIUtils.getClientId());
             uriBuilder.appendQueryParameter(APIUtils.RESPONSE_TYPE_KEY, APIUtils.RESPONSE_TYPE);
             uriBuilder.appendQueryParameter(APIUtils.STATE_KEY, APIUtils.STATE);
-            uriBuilder.appendQueryParameter(APIUtils.REDIRECT_URI_KEY, APIUtils.REDIRECT_URI);
+            uriBuilder.appendQueryParameter(APIUtils.REDIRECT_URI_KEY, APIUtils.getRedirectUri());
             uriBuilder.appendQueryParameter(APIUtils.DURATION_KEY, APIUtils.DURATION);
             uriBuilder.appendQueryParameter(APIUtils.SCOPE_KEY, APIUtils.SCOPE);
 
@@ -201,7 +201,7 @@ public class LoginChromeCustomTabActivity extends BaseActivity {
                 Map<String, String> params = new HashMap<>();
                 params.put(APIUtils.GRANT_TYPE_KEY, "authorization_code");
                 params.put("code", authCode);
-                params.put(APIUtils.REDIRECT_URI_KEY, APIUtils.REDIRECT_URI);
+                params.put(APIUtils.REDIRECT_URI_KEY, APIUtils.getRedirectUri());
 
                 RedditAPI api = mRetrofit.create(RedditAPI.class);
                 Call<String> accessTokenCall = api.getAccessToken(APIUtils.getHttpBasicAuthHeader(), params);

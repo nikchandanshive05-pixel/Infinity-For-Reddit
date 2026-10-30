@@ -1774,4 +1774,10 @@
     <string name="read_failed_with_reason">Failed to read. Error: %1$s</string>
     <string name="unread_failed">Failed to unread</string>
     <string name="unread_failed_with_reason">Failed to unread. Error: %1$s</string>
+    <!-- Custom API Settings -->
+    <string name="settings_custom_api_category_title">Reddit API Settings</string>
+    <string name="settings_custom_api_client_id_title">Custom OAuth Client ID</string>
+    <string name="settings_custom_api_client_id_summary">Set your personal Reddit script/installed app Client ID to bypass API rate limits.</string>
+    <string name="settings_custom_api_redirect_uri_title">Custom Redirect URI</string>
+    <string name="settings_custom_api_redirect_uri_summary">Default: infinity://localhost</string>
 </resources>

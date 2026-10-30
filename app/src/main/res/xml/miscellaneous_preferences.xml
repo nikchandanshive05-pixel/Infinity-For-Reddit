@@ -54,4 +54,21 @@
         app:title="@string/settings_post_feed_max_resolution_title"
         app:useSimpleSummaryProvider="true" />
 
+    <ml.docilealligator.infinityforreddit.customviews.preference.CustomFontPreferenceCategory
+        app:title="@string/settings_custom_api_category_title" />
+
+    <ml.docilealligator.infinityforreddit.customviews.preference.CustomFontEditTextPreference
+        app:defaultValue=""
+        app:key="custom_api_client_id"
+        app:title="@string/settings_custom_api_client_id_title"
+        app:summary="@string/settings_custom_api_client_id_summary"
+        app:useSimpleSummaryProvider="true" />
+
+    <ml.docilealligator.infinityforreddit.customviews.preference.CustomFontEditTextPreference
+        app:defaultValue="infinity://localhost"
+        app:key="custom_api_redirect_uri"
+        app:title="@string/settings_custom_api_redirect_uri_title"
+        app:summary="@string/settings_custom_api_redirect_uri_summary"
+        app:useSimpleSummaryProvider="true" />
+
 </PreferenceScreen>

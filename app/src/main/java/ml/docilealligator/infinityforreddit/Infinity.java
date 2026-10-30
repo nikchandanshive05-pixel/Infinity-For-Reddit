@@ -54,6 +54,12 @@ import ml.docilealligator.infinityforreddit.utils.SharedPreferencesUtils;
 import ml.docilealligator.infinityforreddit.utils.Utils;
 
 public class Infinity extends Application implements LifecycleObserver {
+    private static Infinity sInstance;
+
+    public static Infinity getInstance() {
+        return sInstance;
+    }
+
     public Typeface typeface;
     public Typeface titleTypeface;
     public Typeface contentTypeface;
@@ -95,6 +101,7 @@ public class Infinity extends Application implements LifecycleObserver {
     @Override
     public void onCreate() {
         super.onCreate();
+        sInstance = this;
 
         mAppComponent = DaggerAppComponent.factory()
                 .create(this);

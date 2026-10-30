@@ -53,7 +53,7 @@ class AppAuthLoginViewModel(
                     val params: MutableMap<String, String> = HashMap()
                     params[APIUtils.GRANT_TYPE_KEY] = "authorization_code"
                     params["code"] = it
-                    params[APIUtils.REDIRECT_URI_KEY] = APIUtils.REDIRECT_URI
+                    params[APIUtils.REDIRECT_URI_KEY] = APIUtils.getRedirectUri()
 
                     val api: RedditAPIKt = mRetrofit.create(RedditAPIKt::class.java)
 

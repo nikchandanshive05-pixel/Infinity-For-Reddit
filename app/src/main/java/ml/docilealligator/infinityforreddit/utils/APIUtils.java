@@ -33,6 +33,35 @@ public class APIUtils {
     public static final String CLIENT_ID_KEY = "client_id";
     public static final String CLIENT_SECRET_KEY = "client_secret";
     public static final String CLIENT_ID = "";
+
+    public static String getClientId() {
+        try {
+            ml.docilealligator.infinityforreddit.Infinity app = ml.docilealligator.infinityforreddit.Infinity.getInstance();
+            if (app != null) {
+                android.content.SharedPreferences sp = androidx.preference.PreferenceManager.getDefaultSharedPreferences(app);
+                String customId = sp.getString("custom_api_client_id", "").trim();
+                if (!customId.isEmpty()) {
+                    return customId;
+                }
+            }
+        } catch (Exception ignored) {}
+        return CLIENT_ID;
+    }
+
+    public static String getRedirectUri() {
+        try {
+            ml.docilealligator.infinityforreddit.Infinity app = ml.docilealligator.infinityforreddit.Infinity.getInstance();
+            if (app != null) {
+                android.content.SharedPreferences sp = androidx.preference.PreferenceManager.getDefaultSharedPreferences(app);
+                String customUri = sp.getString("custom_api_redirect_uri", "").trim();
+                if (!customUri.isEmpty()) {
+                    return customUri;
+                }
+            }
+        } catch (Exception ignored) {}
+        return REDIRECT_URI;
+    }
+
     public static final String IMGUR_CLIENT_ID = "Client-ID cc671794e0ab397";
     public static final String REDGIFS_CLIENT_ID = "1828d0bcc93-15ac-bde6-0005-d2ecbe8daab3";
     public static final String REDGIFS_CLIENT_SECRET = "TJBlw7jRXW65NAGgFBtgZHu97WlzRXHYybK81sZ9dLM=";
@@ -137,7 +166,7 @@ public class APIUtils {
 
     public static Map<String, String> getHttpBasicAuthHeader() {
         Map<String, String> params = new HashMap<>();
-        String credentials = String.format("%s:%s", APIUtils.CLIENT_ID, "");
+        String credentials = String.format("%s:%s", APIUtils.getClientId(), "");
         String auth = "Basic " + Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
         params.put(APIUtils.AUTHORIZATION_KEY, auth);
         return params;
